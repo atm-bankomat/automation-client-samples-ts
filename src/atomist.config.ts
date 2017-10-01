@@ -27,7 +27,7 @@ export const configuration: Configuration = {
         () => new VersionMapper(),
         () => new NewAutomation(),
         () => new SpringBootModernizer(),
-        () => new SpringBootVersionUpgrade(),
+        () => new SpringBootVersionUpgrade()
     ],
     events: [
         () => new CommentOnIssue(),
