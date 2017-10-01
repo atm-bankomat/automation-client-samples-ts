@@ -3,6 +3,7 @@ import * as appRoot from "app-root-path";
 import { SpringBootModernizer } from "./commands/editor/spring/SpringBootModernizer";
 import { SpringBootVersionUpgrade } from "./commands/editor/spring/SpringBootVersionUpgrade";
 import { NewAutomation } from "./commands/generator/NewAutomation";
+import { PushToTsLinting } from "./commands/PushToTsLinting";
 import { VersionMapper } from "./commands/reviewer/maven/VersionMapper";
 import { VersionSpreadReviewer } from "./commands/reviewer/maven/VersionSpreadReviewer";
 import { SpringBootVersionReviewer } from "./commands/reviewer/spring/SpringBootVersionReviewer";
@@ -10,7 +11,6 @@ import { HelloWorld } from "./commands/simple/HelloWorld";
 import { CommentOnIssue } from "./events/CommentOnIssue";
 import { HelloIngestor } from "./events/HelloIngestor";
 import { NotifyOnPush } from "./events/NotifyOnPush";
-import { PushToTsLinting } from "./commands/PushToTsLinting";
 
 const pj = require(`${appRoot}//package.json`);
 
@@ -27,7 +27,7 @@ export const configuration: Configuration = {
         () => new VersionMapper(),
         () => new NewAutomation(),
         () => new SpringBootModernizer(),
-        () => new SpringBootVersionUpgrade()
+        () => new SpringBootVersionUpgrade(),
     ],
     events: [
         () => new CommentOnIssue(),
