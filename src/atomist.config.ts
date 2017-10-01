@@ -27,15 +27,15 @@ export const configuration: Configuration = {
         () => new VersionMapper(),
         () => new NewAutomation(),
         () => new SpringBootModernizer(),
-        () => new SpringBootVersionUpgrade()
+        () => new SpringBootVersionUpgrade(),
     ],
     events: [
         () => new CommentOnIssue(),
         () => new NotifyOnPush(),
-        () => new PushToTsLinting()
+        () => new PushToTsLinting(),
     ],
     ingestors: [
-        () => new HelloIngestor()
+        () => new HelloIngestor(),
     ],
     token,
     http: {
