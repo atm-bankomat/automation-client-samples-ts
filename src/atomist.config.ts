@@ -10,15 +10,16 @@ import { HelloWorld } from "./commands/simple/HelloWorld";
 import { CommentOnIssue } from "./events/CommentOnIssue";
 import { HelloIngestor } from "./events/HelloIngestor";
 import { NotifyOnPush } from "./events/NotifyOnPush";
+import { PushToTsLinting } from "./commands/PushToTsLinting";
 
 const pj = require(`${appRoot}//package.json`);
 
 const token = process.env.GITHUB_TOKEN;
 
 export const configuration: Configuration = {
-    name: pj.name ,
+    name: pj.name,
     version: pj.version,
-    teamId: "T1L0VDKJP", // <-- run @atomist pwd in your slack team to obtain the team id
+    teamId: "T7BPVSAR3", // <-- run @atomist pwd in your slack team to obtain the team id
     commands: [
         () => new HelloWorld(),
         () => new SpringBootVersionReviewer(),
@@ -31,6 +32,7 @@ export const configuration: Configuration = {
     events: [
         () => new CommentOnIssue(),
         () => new NotifyOnPush(),
+        () => new PushToTsLinting(),
     ],
     ingestors: [
         () => new HelloIngestor(),
@@ -47,8 +49,5 @@ export const configuration: Configuration = {
             },
         },
     },
-    endpoints: {
-        api: "https://automation-staging.atomist.services/registration",
-        graphql: "https://automation-staging.atomist.services/graphql/team",
-    },
+
 };
