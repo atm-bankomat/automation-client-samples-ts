@@ -4,9 +4,11 @@ import { SpringBootModernizer } from "./commands/editor/spring/SpringBootModerni
 import { SpringBootVersionUpgrade } from "./commands/editor/spring/SpringBootVersionUpgrade";
 import { NewAutomation } from "./commands/generator/NewAutomation";
 import { PushToTsLinting } from "./commands/PushToTsLinting";
+// import { ResetFromChaos } from "./commands/ResetFromChaos";
 import { VersionMapper } from "./commands/reviewer/maven/VersionMapper";
 import { VersionSpreadReviewer } from "./commands/reviewer/maven/VersionSpreadReviewer";
 import { SpringBootVersionReviewer } from "./commands/reviewer/spring/SpringBootVersionReviewer";
+// import { RunChaos } from "./commands/RunChaos";
 import { HelloWorld } from "./commands/simple/HelloWorld";
 import { CommentOnIssue } from "./events/CommentOnIssue";
 import { HelloIngestor } from "./events/HelloIngestor";
@@ -21,21 +23,23 @@ export const configuration: Configuration = {
     version: pj.version,
     teamId: "T7BPVSAR3", // <-- run @atomist pwd in your slack team to obtain the team id
     commands: [
-        () => new HelloWorld(),
-        () => new SpringBootVersionReviewer(),
-        () => new VersionSpreadReviewer(),
-        () => new VersionMapper(),
-        () => new NewAutomation(),
-        () => new SpringBootModernizer(),
-        () => new SpringBootVersionUpgrade(),
+        // () => new RunChaos(),
+        // () => new ResetFromChaos(),
+        // () => new HelloWorld(),
+        // () => new SpringBootVersionReviewer(),
+        // () => new VersionSpreadReviewer(),
+        // () => new VersionMapper(),
+        // () => new NewAutomation(),
+        // () => new SpringBootModernizer(),
+        // () => new SpringBootVersionUpgrade(),
     ],
     events: [
-        () => new CommentOnIssue(),
-        () => new NotifyOnPush(),
-        () => new PushToTsLinting(),
+        // () => new CommentOnIssue(),
+        // () => new NotifyOnPush(),
+        // () => new PushToTsLinting(),
     ],
     ingestors: [
-        () => new HelloIngestor(),
+        // () => new HelloIngestor(),
     ],
     token,
     http: {
