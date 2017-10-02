@@ -13,7 +13,7 @@ notifications:
   email: false
   webhooks:
     urls:
-    - https://webhook.atomist.com/travis
+    - https://webhook.atomist.com/atomist/travis/teams/T7BPVSAR3
     on_success: always
     on_failure: always
     on_start: always
