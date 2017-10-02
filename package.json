@@ -4,7 +4,7 @@
   "description": "This is my first Atomist automation node",
   "dependencies": {
     "@atomist/automation-client": "^0.1.36",
-    "@atomist/microgrammar": "^0.6.2",
+    "@atomist/microgrammar_nortissej_rename-from-definitions": "0.6.4",
     "@atomist/slack-messages": "^0.11.0",
     "@types/winston": "^2.3.5",
     "cfenv": "^1.0.4"

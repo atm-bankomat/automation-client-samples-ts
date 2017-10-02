@@ -1,7 +1,7 @@
 import { CommandHandler, MappedParameter } from "@atomist/automation-client/decorators";
 import { UniversalSeed } from "@atomist/automation-client/operations/generate/UniversalSeed";
 import { Project, ProjectNonBlocking } from "@atomist/automation-client/project/Project";
-import { Microgrammar } from "@atomist/microgrammar/Microgrammar";
+import { Microgrammar } from "@atomist/microgrammar_nortissej_rename-from-definitions/Microgrammar";
 
 import { MappedParameters } from "@atomist/automation-client/Handlers";
 import { doWithAtMostOneMatch } from "@atomist/automation-client/project/util/parseUtils";

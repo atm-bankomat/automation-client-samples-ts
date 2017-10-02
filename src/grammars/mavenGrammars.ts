@@ -1,5 +1,5 @@
-import { Microgrammar } from "@atomist/microgrammar/Microgrammar";
-import { atLeastOne, zeroOrMore } from "@atomist/microgrammar/Rep";
+import { Microgrammar } from "@atomist/microgrammar_nortissej_rename-from-definitions/Microgrammar";
+import { atLeastOne, zeroOrMore } from "@atomist/microgrammar_nortissej_rename-from-definitions/Rep";
 import { VersionedArtifact } from "./VersionedArtifact";
 
 export const ElementName = /^[a-zA-Z_.0-9\-]+/;
