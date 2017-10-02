@@ -3,7 +3,7 @@ node_js:
 - 8.4.0
 branches:
   except:
-  - /\+travis\d+$/
+  - "/\\+travis\\d+$/"
 env:
   global:
   - secure: d4kvhTbhdJQ3xZ1zdjHIt9I+fPKPDV1z1c897UJDLVt0sWMFSDZAw8AN8t7rmwRl7Og2rgG/wwTcawQ2HBhZfQJ2nuppUme6dxutRuCNm8DopDcae5s0AvOvBi7+7r7E8L2kVq8D5IexNrLdHfYgsO1/r+i7mUc1hXRf3nwBYcfwWytip4D2X1zwORsjFWchd/g7HEhOMRf88SSlFKtKvoWNS7VRBWnmCWKzpx5gmp0znLCn7yyxf1oHO+W0sZR4v++nWycC3Mz1i9r8a1KNImdXMIBCIhPPBQbgq157UFInkqyOyA0gSZSPIQRzh0UYqzfFUnl/r+wCsFr9a/u1+C5lzD63T3+1n2ndcnRxqV25+lLl5p90oIkgFBuTwU9UoEZMXNeLU9sPQg5l/LeKakf50ZrlK/ZNvu6BgfezFhXNklzvr2wu7s/yukrSpAru+fer5gbWjV5TuRuQcavJVmYy62KAoJCkXPYfmMG1OdBfgI4q6kyXHTrZOCK/PCzAu1sBXgyIOXTL0fLFR2+imfhN1FoM+N7/O/4l1TyzihxENWcO8pX4zdeYdarkOOGzWicKVV2/QeMheSjNd+XcMCl85ObgHSqRf/9tA4edgkqUoYCV/Qa9ABPkJdmXlXxu7fXzfGVOMGYrMEVyrgSIe40CXbser8Shz2k7zuvIiU4=
@@ -21,14 +21,17 @@ notifications:
     on_error: always
 cache:
   directories:
-  - $HOME/.npm
+  - "$HOME/.npm"
 deploy:
   provider: releases
   api_key:
     secure: lL5AIU75oQXS/xQ+CTq82OP3SXm7B4fdEAnuNM4qR28ZhdxDEojQ8259/0wm1B6Sdx8hZNbFWtd7ASQjPA7vP240bCM3QJA0wuIjWjLzYmfUhfbmJu2ClKs8FTyXroBkHvc2LSIwZP289pwW8pmm9XmDCuLyftro88H6OD/oUF4XIZ2WtGaPLtRslVMV1Jtypu8vImsRsg6qYmmPTe4IGM14KRHMuVeaTpomDmO5tmPmt/f1gwPK2V9+tcGQxjLnqakpy4uZb9h1kC4JDzCTKqx4GSQCgZTdaMI3O7ul11SFlGYXq9jS6XEV4n/wFAosV5/Vcs2z7MKM1O4QGLLSOeo/SjwNhTTnQmIFXx/+AtACSLe1a7+866MrLWFU6ij4X8+KPONLk2s+0e9yHlVLctqVXYJr1gF4vorANuw3wLvh7zUN8s5aizUZ4cCXubSsnf9NDLW/QmKVQD7oL/IXWG9mZsgz3BKosD3fnkCWhkSK+oHxWx4KxOiyNacvZaIUF85Ku/ExyyIN6HiGK1eSvV50f9mG2TNBXR02bH9ZsN9HjtiedsUqQu4VEiq1w5ijuNu/ls8RyaHidp3OJoOSbmXLyViaGHc+0ZAw0PHVEismmjN70qC3tfP+0ZzpZQYJqqQ6Xq3gVHSICR9EF4VY1FC7HBUHx4GbJ5OIEVOh/X0=
   on:
     tags: true
-    condition: $TRAVIS_TAG =~ ^[0-9]+\.[0-9]+\.[0-9]+(-(m|rc)\.[0-9]+)?$
+    condition: "$TRAVIS_TAG =~ ^[0-9]+\\.[0-9]+\\.[0-9]+(-(m|rc)\\.[0-9]+)?$"
 after_deploy:
 - bash scripts/npm-publish.bash --access public
 - bash scripts/gh-publish.bash $TRAVIS_REPO_SLUG
+before_install:
+- openssl aes-256-cbc -K $encrypted_509a4afa1ecb_key -iv $encrypted_509a4afa1ecb_iv
+  -in scripts/.npmrc.enc -out $HOME/.npmrc -d
