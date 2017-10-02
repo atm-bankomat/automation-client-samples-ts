@@ -15,6 +15,8 @@ export class NewAutomation extends UniversalSeed {
     @MappedParameter(MappedParameters.SLACK_TEAM)
     public team: string;
 
+    private noSemicolon = ""
+
     constructor() {
         super();
         this.sourceOwner = "atomist";
