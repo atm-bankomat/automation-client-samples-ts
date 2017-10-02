@@ -1,13 +1,15 @@
 import { CommandHandler, MappedParameter } from "@atomist/automation-client/decorators";
 import { UniversalSeed } from "@atomist/automation-client/operations/generate/UniversalSeed";
-import { Project, ProjectNonBlocking } from "@atomist/automation-client/project/Project";
 import { Microgrammar } from "@atomist/microgrammar/Microgrammar";
+import { Project, ProjectNonBlocking } from "@atomist/automation-client/project/Project";
 
 import { MappedParameters } from "@atomist/automation-client/Handlers";
 import { doWithAtMostOneMatch } from "@atomist/automation-client/project/util/parseUtils";
 
 /**
  * Generator command to create a new node automation client repo
+ *
+ * tslint hates it when you reorder imports
  */
 @CommandHandler("Create a new automation repo", "new automation")
 export class NewAutomation extends UniversalSeed {
